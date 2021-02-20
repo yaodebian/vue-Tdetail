@@ -1,0 +1,46 @@
+{
+  "name": "vue-tdetail",
+  "version": "0.1.0",
+  "description": "About a vue component which show detail blocks in table form.",
+  "main": "dist/vue-tdetail.umd.js",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "lint": "vue-cli-service lint",
+    "build": "npm run lint && vue-cli-service build --target lib --name vue-tdetail src/index.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build"
+    }
+  },
+  "keywords": [
+    "component",
+    "detail blocks",
+    "vue"
+  ],
+  "author": "yaodebian",
+  "repository": "https://github.com/yaodebian/vue-Tdetail",
+  "license": "MIT",
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "babel-plugin-transform-remove-debugger": "^6.9.4",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "sass": "^1.32.5",
+    "sass-loader": "^10.1.1",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
