@@ -7,7 +7,7 @@
       :key="col.label"
     >
       <label class="tdetail-row__col-label" v-text="col.label"></label>
-      <p class="tdetail-row__col-value" v-text="col.value"></p>
+      <p class="tdetail-row__col-value" v-tooltip="col.value" v-text="col.value"></p>
     </div>
   </div>
 </template>

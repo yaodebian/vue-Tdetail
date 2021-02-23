@@ -58,7 +58,7 @@ export default {
         },
         {
           label: 'label9',
-          value: '感觉很干净很干净很客观环境高科技赶紧换个好几个机会看过后即可',
+          value: 'Vue (pronounced /vjuː/, like view) is a progressive framework for building user interfaces. Unlike other monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. The core library is focused on the view layer only, and is easy to pick up and integrate with other libraries or existing projects. On the other hand, Vue is also perfectly capable of powering sophisticated Single-Page Applications when used in combination with modern tooling and supporting libraries.',
           colspan: 1
         },
         {
@@ -68,6 +68,11 @@ export default {
         }
       ]
     }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.list[8].value = 'hello, vue'
+    }, 5000)
   }
 }
 </script>
