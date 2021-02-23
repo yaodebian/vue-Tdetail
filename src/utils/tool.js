@@ -12,21 +12,16 @@ export const getRows = (col, list) => {
         index = n
         break
       }
-      // if (len < col) {
-        const tempItem = JSON.parse(JSON.stringify(list[n]))
-        tempItem.colspan = tempItem.colspan ? Math.floor(tempItem.colspan) : 1
-        if (len + tempItem.colspan > col && col - len >= 1) {
-          tempItem.colspan = col - len
-        } else if (len + tempItem.colspan > col && col - len < 1) {
-          index = n
-          break
-        }
-        temp.push(tempItem)
-        len += tempItem.colspan
-      // } else {
-      //   index = n
-      //   break
-      // }
+      const tempItem = JSON.parse(JSON.stringify(list[n]))
+      tempItem.colspan = tempItem.colspan ? Math.floor(tempItem.colspan) : 1
+      if (len + tempItem.colspan > col && col - len >= 1) {
+        tempItem.colspan = col - len
+      } else if (len + tempItem.colspan > col && col - len < 1) {
+        index = n
+        break
+      }
+      temp.push(tempItem)
+      len += tempItem.colspan
     }
     if (index === i) {
       i = i + col
