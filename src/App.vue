@@ -1,19 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <img alt="Vue logo" src="./assets/img/logo.png">
     <h1>Vue Table Detail</h1>
-    <DefaultDemo></DefaultDemo>
+    <DefaultDemo class="demo-item"></DefaultDemo>
+    <WrapDemo class="demo-item"></WrapDemo>
+    <BundleDemo class="demo-item"></BundleDemo>
   </div>
 </template>
 
 <script>
 // import components
 import DefaultDemo from './demos/DefaultDemo.vue'
+import WrapDemo from './demos/WrapDemo.vue'
+import BundleDemo from './demos/BundleDemo.vue'
 
 export default {
   name: 'App',
   components: {
-    DefaultDemo
+    DefaultDemo,
+    WrapDemo,
+    BundleDemo
   },
 }
 </script>
@@ -25,6 +31,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  padding: 10px;
   margin-top: 60px;
+}
+
+.demo-item {
+  margin-bottom: 20px;
 }
 </style>

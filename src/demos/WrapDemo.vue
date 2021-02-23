@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h2>Demo1: Default</h2>
+    <h2>Demo2: Wrap</h2>
     <TDetail 
       :list="list" 
       :col="4"
-      :wrap="false"
+      :wrap="true"
     >
     </TDetail>
   </div>
@@ -15,7 +15,7 @@
 import TDetail from '../components/TDetail.vue'
 
 export default {
-  name: 'DefaultDemo',
+  name: 'WrapDemo',
   components: {
     TDetail
   },

@@ -1,13 +1,13 @@
 <template>
   <div class="tdetail-row">
     <div 
-      :class="{'tdetail-row__col': true, 'tdetail-row__col-box': border}"
+      :class="{ 'tdetail-row__col': true, 'tdetail-row__colbox': border }"
       :style="`flex-grow: ${col.colspan}`"
       v-for="col in columList" 
       :key="col.label"
     >
-      <label class="tdetail-row__col-label" v-text="col.label"></label>
-      <p class="tdetail-row__col-value" v-tooltip="col.value" v-text="col.value"></p>
+      <label class="tdetail-row__col-label" v-tooltip="col.label" v-text="col.label"></label>
+      <p :class="{ 'tdetail-row__col-value': true, 'tdetail-row__col-valwrap': wrap }" v-tooltip="col.value" v-text="col.value"></p>
     </div>
   </div>
 </template>
@@ -28,11 +28,7 @@ export default {
       type: Boolean,
       default: true
     },
-    labelWrap: {
-      type: Boolean,
-      default: false
-    },
-    valueWrap: {
+    wrap: {
       type: Boolean,
       default: false
     },
@@ -52,14 +48,15 @@ export default {
 .tdetail-row__col {
   font-size: 14px;
   text-align: left;
-  height: 48px;
+  line-height: 48px;
   box-sizing: border-box;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   flex-basis: 0;
+  overflow: hidden;
 }
 
-.tdetail-row__col-box {
+.tdetail-row__colbox {
   border-bottom: 1px solid #e8eaec; 
 
   &::after {
@@ -77,7 +74,6 @@ export default {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; 
-  flex-shrink: 0;
   
   &::after {
     content: ':';
@@ -93,5 +89,10 @@ export default {
   text-overflow: ellipsis; 
   flex-basis: 0;
   flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.tdetail-row__col-valwrap {
+  white-space: normal;
 }
 </style>

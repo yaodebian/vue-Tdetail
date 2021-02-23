@@ -1,14 +1,13 @@
 <template>
-  <div :class="{'tdetail': true, 'tdetail-box': border}">
+  <div :class="{ 'tdetail': true, 'tdetail-box': border }">
     <TDetailRow
-      :class="{'tdetail__row': border}"
+      :class="{ 'tdetail__row': border }"
       v-for="row in rows" 
       :key="row.label" 
       :col="col" 
       :columList="row" 
       :border="border"
-      :label-wrap="labelWrap"
-      :value-wrap="valueWrap"
+      :wrap="wrap"
     >
     </TDetailRow>
   </div>
@@ -35,11 +34,7 @@ export default {
       type: Boolean,
       default: true
     },
-    labelWrap: {
-      type: Boolean,
-      default: false
-    },
-    valueWrap: {
+    wrap: {
       type: Boolean,
       default: false
     },
