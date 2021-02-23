@@ -1363,8 +1363,7 @@ var getRows = function getRows(col, list) {
         temp[temp.length - 1].colspan += col - len;
         index = n;
         break;
-      } // if (len < col) {
-
+      }
 
       var tempItem = JSON.parse(JSON.stringify(list[n]));
       tempItem.colspan = tempItem.colspan ? Math.floor(tempItem.colspan) : 1;
@@ -1377,10 +1376,7 @@ var getRows = function getRows(col, list) {
       }
 
       temp.push(tempItem);
-      len += tempItem.colspan; // } else {
-      //   index = n
-      //   break
-      // }
+      len += tempItem.colspan;
     }
 
     if (index === i) {
