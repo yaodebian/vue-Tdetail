@@ -2,17 +2,19 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <h1>Vue Table Detail</h1>
+    <DefaultDemo></DefaultDemo>
   </div>
 </template>
 
 <script>
 // import components
+import DefaultDemo from './demos/DefaultDemo.vue'
 
 export default {
   name: 'App',
   components: {
-  
-  }
+    DefaultDemo
+  },
 }
 </script>
 
