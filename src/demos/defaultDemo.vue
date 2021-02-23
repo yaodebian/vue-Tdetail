@@ -68,11 +68,6 @@ export default {
         }
       ]
     }
-  },
-  mounted() {
-    setTimeout(() => {
-      this.list[8].value = 'hello, vue'
-    }, 5000)
   }
 }
 </script>
