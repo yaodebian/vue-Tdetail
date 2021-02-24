@@ -79,8 +79,4 @@ export default {
   border-right: none;
   border-bottom: none;
 }
-
-.tdetail__row {
-  // width: calc(100% - 1px);
-}
 </style>
