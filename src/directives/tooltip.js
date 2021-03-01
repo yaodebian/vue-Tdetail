@@ -14,5 +14,8 @@ export default {
     if (binding.value !== binding.oldValue) {
       handler(el, binding)
     }
+  },
+  componentUpdated: (el, binding) => {
+    handler(el, binding)
   }
 }
