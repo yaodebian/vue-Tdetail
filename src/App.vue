@@ -5,6 +5,7 @@
     <DefaultDemo class="demo-item"></DefaultDemo>
     <WrapDemo class="demo-item"></WrapDemo>
     <BundleDemo class="demo-item"></BundleDemo>
+    <DragDemo class="demo-item"></DragDemo>
   </div>
 </template>
 
@@ -13,13 +14,15 @@
 import DefaultDemo from './demos/DefaultDemo.vue'
 import WrapDemo from './demos/WrapDemo.vue'
 import BundleDemo from './demos/BundleDemo.vue'
+import DragDemo from './demos/DragDemo.vue'
 
 export default {
   name: 'App',
   components: {
     DefaultDemo,
     WrapDemo,
-    BundleDemo
+    BundleDemo,
+    DragDemo
   },
 }
 </script>

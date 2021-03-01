@@ -4,6 +4,9 @@ import App from './App.vue'
 /* assets */
 import './assets/css/common.css'
 
+/* utils */
+import './utils/classList.js'
+
 /* directives */
 import directives from './directives/directive.js'
 Vue.use(directives)

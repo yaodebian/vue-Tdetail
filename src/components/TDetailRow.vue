@@ -1,7 +1,7 @@
 <template>
   <div class="tdetail-row">
     <div 
-      :class="{ 'tdetail-row__col': true, 'tdetail-row__colbox': border }"
+      :class="{ 'tdetail-row__col': true, 'tdetail-row__colbox': border, 'tdetail-row__colborder': dragable && border }"
       :style="`flex-grow: ${col.colspan}`"
       v-for="col in columList" 
       :key="col.label"
@@ -32,6 +32,10 @@ export default {
       type: Boolean,
       default: false
     },
+    dragable: {
+      type: Boolean,
+      default: false
+    }
   },
   data() {
     return {
@@ -65,6 +69,17 @@ export default {
     height: 100%;
     background: #e8eaec;
     display: block;
+    pointer-events: auto;
+  }
+}
+
+.tdetail-row__colborder {
+  &:last-child::after {
+    cursor: auto;
+  }
+
+  &::after {
+    cursor: col-resize;
   }
 }
 
