@@ -160,7 +160,7 @@ export default {
       if (this.moving) {
         document.body.style['userSelect'] = 'auto'
         this.$refs['markLine'].style.left = 0
-        this.dragPercentage = 1 - this.markLineL / (this.$refs['detailCon'].offsetWidth - 1)
+        this.dragPercentage = 1 - this.markLineL / (this.$refs['detailCon'].getBoundingClientRect().width - 1)
         this.computeColWidth()
         this.moving = false
       }
