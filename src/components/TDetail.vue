@@ -19,6 +19,7 @@
 <script>
 // import script
 import getRows from '@/utils/rows.js'
+import { alignMatch, restAlignList } from '@/utils/alignMatch' // eslint-disable-line
 
 // import components
 import TDetailRow from './TDetailRow.vue'
@@ -67,6 +68,7 @@ export default {
       markLineL: 0,
       dragColIndex: [0, 0, 0],
       dragPercentage: 0,
+      alignMatchList: []
     }
   },
   watch: {
@@ -75,6 +77,7 @@ export default {
       deep: true,
       handler(val) {
         this.rows = getRows(this.col, val)
+        this.initAlignMatchList()
       }
     }
   },
@@ -88,25 +91,37 @@ export default {
         if (this.dragColIndex[i] === -1) {
           continue
         }
-        let count = 0
-        for (let j = 0; j < this.rows[i].length; j++) {
-          if (j > this.dragColIndex[i]) {
-            count += this.rows[i][j].colspan
-          }
+        // adjust the left half
+        let previousCount = this.col * this.dragPercentage
+        const remain = this.col - previousCount
+        const targetIndex = this.dragColIndex[i]
+        for (let j = 0; j < targetIndex; j++) {
+          previousCount -= this.rows[i][j].colspan
         }
-        let allCount = 0
-        let allCol = count / this.dragPercentage
-        let remain = allCol - count
-        for (let n = 0; n < this.rows[i].length; n++) {
-          allCount += this.rows[i][n].colspan
+        this.rows[i][targetIndex].colspan = previousCount
+        // adjust the right half
+        let behindCount = 0
+        for (let j = targetIndex + 1; j < this.rows[i].length; j++) {
+          behindCount += this.rows[i][j].colspan
         }
-        for (let m = 0; m < this.dragColIndex[i]; m++) {
-          const temp = this.rows[i][m].colspan / allCount * allCol
-          this.rows[i][m].colspan = temp
-          remain -= temp
+        for (let j = targetIndex + 1; j < this.rows[i].length; j++) {
+          this.rows[i][j].colspan = this.rows[i][j].colspan / behindCount * remain
         }
-        this.rows[i][this.dragColIndex[i]].colspan = remain
       }
+      // if (this.dragColIndex.indexOf(-1) === -1) {
+      //   return
+      // }
+      // let dragRowIndex = -1
+      // for (let i = 0; i < this.dragColIndex.length; ) {
+      //   if (this.dragColIndex[i] !== -1) {
+      //     dragRowIndex = i
+      //     break
+      //   }
+      // }
+      // const restAlignObj = {}
+      // for (let i = dragRowIndex + 1; i < this.rows[dragRowIndex][this.dragColIndex[dragRowIndex]].length; i++) {
+      //   let temp = restAlignList(this.alignMatchList, dragRowIndex, i)
+      // }
     },
     // handle mousedown event
     handleMouseDown(ev) {
@@ -117,20 +132,26 @@ export default {
       const el = ev.srcElement
       if (el.classList.contains('tdetail-row__colborder')) {
         this.startPos = el.getBoundingClientRect().left - conX + 1
+        // get index in row columns
         const childClass = el.className.replace(/(^\s*)|(\s*$)/, '').split(/\s+/).map(item => `.${item}`).join('')
         const childIndex = [].indexOf.call(el.parentNode.querySelectorAll(childClass), el)
+        // get index in row list
         const parentClass = el.parentNode.className.replace(/(^\s*)|(\s*$)/, '').split(/\s+/).map(item => `.${item}`).join('')
         const index = [].indexOf.call(el.parentNode.parentNode.querySelectorAll(parentClass), el.parentNode)
+        // last border can't be dragged
         if (childIndex === this.rows[index].length - 1) {
           return
         }
+        // get the sum of weight
         let colspan = this.rows[index][childIndex].colspan
         for (let i = childIndex - 1; i >= 0; i--) {
           colspan += this.rows[index][i].colspan
         }
+        // get weight of the row
         const targetNum = this.rows[index].reduce((total, cur) => {
           return total + cur.colspan
         }, 0)
+        // try to compute the same drag line
         this.rows.forEach((item, index) => {
           let count = 0
           let flag = false
@@ -148,19 +169,22 @@ export default {
             }
           }
           if (!flag) {
-            this.dragColIndex[index] = -1
+            this.dragColIndex[index] = -1 // use -1 to indicate no match
           }
         })
+        // forbidden 'user select mode' while dragging
         document.body.style['userSelect'] = 'none'
+        // tag move status
         this.moving = true
       }
     },
     // handle mouseup event
     handleMouseUp() {
       if (this.moving) {
+        // restart 'user select mode'
         document.body.style['userSelect'] = 'auto'
         this.$refs['markLine'].style.left = 0
-        this.dragPercentage = 1 - this.markLineL / (this.$refs['detailCon'].getBoundingClientRect().width - 1)
+        this.dragPercentage = this.markLineL / (this.$refs['detailCon'].getBoundingClientRect().width - 1)
         this.computeColWidth()
         this.moving = false
       }
@@ -168,9 +192,10 @@ export default {
     // handle boder moving
     handleBorderMoving(ev) {
       if (this.moving) {
-        const conX = this.$refs['detailCon'].getBoundingClientRect().left - 1
+        const conX = this.$refs['detailCon'].getBoundingClientRect().left
         const clientX = ev.clientX
-        this.markLineL = clientX - conX > 0 ? clientX - conX : 0
+        this.markLineL = clientX - conX > 0 ? clientX - conX + 1 : 0
+        // limit min width
         if (this.markLineL - this.startPos < 100) {
           this.markLineL = this.startPos + 100
         }
@@ -183,6 +208,10 @@ export default {
         window.addEventListener('mousemove', this.handleBorderMoving)
         window.addEventListener('mouseup', this.handleMouseUp)
       }
+    },
+    // init align match list
+    initAlignMatchList() {
+      this.alignMatchList = alignMatch(this.rows)
     },
     // remove event listener
     removeListener() {
