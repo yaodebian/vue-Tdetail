@@ -4279,12 +4279,12 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"2ea40ba5-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TDetail.vue?vue&type=template&id=7f1bf6fe&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"2ea40ba5-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TDetail.vue?vue&type=template&id=035eae58&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"detailCon",class:{ 'tdetail': true, 'tdetail-box': _vm.border, 'tdetail-resize': _vm.moving }},[_vm._l((_vm.rows),function(row){return _c('TDetailRow',{key:row.label,class:{ 'tdetail__row': _vm.border },attrs:{"col":_vm.col,"columList":row,"border":_vm.border,"wrap":_vm.wrap,"dragable":_vm.dragable},nativeOn:{"mousedown":function($event){return _vm.handleMouseDown($event)}}})}),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.moving),expression:"moving"}],ref:"markLine",staticClass:"tdetail-box__mark-line"})],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/TDetail.vue?vue&type=template&id=7f1bf6fe&
+// CONCATENATED MODULE: ./src/components/TDetail.vue?vue&type=template&id=035eae58&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.for-each.js
 var es_array_for_each = __webpack_require__("4160");
@@ -4319,6 +4319,115 @@ var es_string_split = __webpack_require__("1276");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.for-each.js
 var web_dom_collections_for_each = __webpack_require__("159b");
 
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.js
+var es_symbol = __webpack_require__("a4d3");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.description.js
+var es_symbol_description = __webpack_require__("e01a");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.iterator.js
+var es_symbol_iterator = __webpack_require__("d28b");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.iterator.js
+var es_array_iterator = __webpack_require__("e260");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
+var es_object_to_string = __webpack_require__("d3b7");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.iterator.js
+var es_string_iterator = __webpack_require__("3ca3");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.iterator.js
+var web_dom_collections_iterator = __webpack_require__("ddb0");
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js
+
+
+
+
+
+
+
+function _iterableToArrayLimit(arr, i) {
+  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+
+  try {
+    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.from.js
+var es_array_from = __webpack_require__("a630");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.slice.js
+var es_array_slice = __webpack_require__("fb6a");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.function.name.js
+var es_function_name = __webpack_require__("b0c0");
+
+// EXTERNAL MODULE: ./node_modules/core-js/modules/es.regexp.to-string.js
+var es_regexp_to_string = __webpack_require__("25f0");
+
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js
+
+
+
+
+
+
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/nonIterableRest.js
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js
+
+
+
+
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+}
 // CONCATENATED MODULE: ./src/utils/rows.js
 /* harmony default export */ var rows = (function (col, list) {
   col = col || 3;
@@ -4368,65 +4477,6 @@ var es_array_concat = __webpack_require__("99af");
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.regexp.constructor.js
 var es_regexp_constructor = __webpack_require__("4d63");
 
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.regexp.to-string.js
-var es_regexp_to_string = __webpack_require__("25f0");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.js
-var es_symbol = __webpack_require__("a4d3");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.description.js
-var es_symbol_description = __webpack_require__("e01a");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.iterator.js
-var es_symbol_iterator = __webpack_require__("d28b");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.iterator.js
-var es_array_iterator = __webpack_require__("e260");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.object.to-string.js
-var es_object_to_string = __webpack_require__("d3b7");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.iterator.js
-var es_string_iterator = __webpack_require__("3ca3");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.iterator.js
-var web_dom_collections_iterator = __webpack_require__("ddb0");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.from.js
-var es_array_from = __webpack_require__("a630");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.slice.js
-var es_array_slice = __webpack_require__("fb6a");
-
-// EXTERNAL MODULE: ./node_modules/core-js/modules/es.function.name.js
-var es_function_name = __webpack_require__("b0c0");
-
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-
-  return arr2;
-}
-// CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js
-
-
-
-
-
-
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
 // CONCATENATED MODULE: ./node_modules/@babel/runtime/helpers/esm/createForOfIteratorHelper.js
 
 
@@ -4500,6 +4550,8 @@ function _createForOfIteratorHelper(o, allowArrayLike) {
 
 
 
+
+// get align info between row1 and row2
 function match(row1, index1, row2, index2) {
   var count1 = 0,
       count2 = 0;
@@ -4510,16 +4562,26 @@ function match(row1, index1, row2, index2) {
     count1 += row1[i].colspan;
 
     for (; j < row2.length; j++) {
-      count2 += row2[j];
+      var temp = count2 + row2[j].colspan;
+
+      if (temp > count1) {
+        break;
+      }
+
+      count2 = temp;
 
       if (count2 === count1) {
-        resArr.push("".concat(index1, "-i:").concat(index2, ":j"));
+        resArr.push("".concat(index1, "-").concat(i, ":").concat(index2, "-").concat(j)); // it means "row-index1"'s column i aligns with "row-index2"'s column j
+
+        j++;
+        break;
       }
     }
   }
 
   return resArr;
-}
+} // get all align info
+
 
 var alignMatch = function alignMatch(rows) {
   var resArr = [];
@@ -4531,7 +4593,8 @@ var alignMatch = function alignMatch(rows) {
   }
 
   return resArr;
-};
+}; // get align info of "row-rowIndex"'s column colIndex
+
 var alignMatch_restAlignList = function restAlignList(matchList, rowIndex, colIndex) {
   var resArr = [];
   var regExpPre = new RegExp("^".concat(rowIndex, "-").concat(colIndex));
@@ -4545,11 +4608,15 @@ var alignMatch_restAlignList = function restAlignList(matchList, rowIndex, colIn
       var item = _step.value;
 
       if (regExpPre.test(item)) {
-        resArr.push(item.split(':')[1].split('-'));
+        resArr.push(item.split(':')[1].split('-').map(function (item) {
+          return parseInt(item);
+        }));
       }
 
       if (regExpBhi.test(item)) {
-        resArr.push(item.split(':')[0].split('-'));
+        resArr.push(item.split(':')[0].split('-').map(function (item) {
+          return parseInt(item);
+        }));
       }
     }
   } catch (err) {
@@ -4751,6 +4818,7 @@ var component = normalizeComponent(
 
 
 
+
 //
 //
 //
@@ -4866,25 +4934,60 @@ var component = normalizeComponent(
         for (var _j2 = targetIndex + 1; _j2 < this.rows[i].length; _j2++) {
           this.rows[i][_j2].colspan = this.rows[i][_j2].colspan / behindCount * remain;
         }
-      } // if (this.dragColIndex.indexOf(-1) === -1) {
-      //   return
-      // }
-      // let dragRowIndex = -1
-      // for (let i = 0; i < this.dragColIndex.length; ) {
-      //   if (this.dragColIndex[i] !== -1) {
-      //     dragRowIndex = i
-      //     break
-      //   }
-      // }
-      // const restAlignObj = {}
-      // for (let i = dragRowIndex + 1; i < this.rows[dragRowIndex][this.dragColIndex[dragRowIndex]].length; i++) {
-      //   let temp = restAlignList(this.alignMatchList, dragRowIndex, i)
-      // }
+      }
 
+      if (this.dragColIndex.indexOf(-1) === -1) {
+        return;
+      }
+
+      var dragRowIndex = -1;
+
+      for (var _i = 0; _i < this.dragColIndex.length; _i++) {
+        if (this.dragColIndex[_i] !== -1) {
+          dragRowIndex = _i;
+          break;
+        }
+      }
+
+      for (var _i2 = this.dragColIndex[dragRowIndex] + 1; _i2 < this.rows[dragRowIndex].length; _i2++) {
+        var temp = alignMatch_restAlignList(this.alignMatchList, dragRowIndex, _i2);
+        this.ajustRestColumn(dragRowIndex, _i2, temp);
+      }
+    },
+    // ajust rest column
+    ajustRestColumn: function ajustRestColumn(rowIndex, colIndex, list) {
+      var _this = this;
+
+      var count = 0;
+
+      for (var i = colIndex + 1; i < this.rows[rowIndex].length; i++) {
+        count += this.rows[rowIndex][i].colspan;
+      }
+
+      list.forEach(function (item) {
+        var _item = _slicedToArray(item, 2),
+            r = _item[0],
+            c = _item[1];
+
+        var itemCount = 0;
+
+        for (var _i3 = c + 1; _i3 < _this.rows[r].length; _i3++) {
+          itemCount += _this.rows[r][_i3].colspan;
+        }
+
+        var resItemCount = 0;
+
+        for (var _i4 = c + 1; _i4 < _this.rows[r].length; _i4++) {
+          _this.rows[r][_i4].colspan = _this.rows[r][_i4].colspan / itemCount * count;
+          resItemCount += _this.rows[r][_i4].colspan;
+        }
+
+        _this.rows[r][c].colspan += itemCount - resItemCount;
+      });
     },
     // handle mousedown event
     handleMouseDown: function handleMouseDown(ev) {
-      var _this = this;
+      var _this2 = this;
 
       var conX = this.$refs['detailCon'].getBoundingClientRect().left;
       var clientX = ev.clientX;
@@ -4925,7 +5028,7 @@ var component = normalizeComponent(
           var count = 0;
           var flag = false;
 
-          var curNum = _this.rows[index].reduce(function (total, cur) {
+          var curNum = _this2.rows[index].reduce(function (total, cur) {
             return total + cur.colspan;
           }, 0);
 
@@ -4934,7 +5037,7 @@ var component = normalizeComponent(
 
             if ((count / curNum).toFixed(3) === (colspan / targetNum).toFixed(3)) {
               flag = true;
-              _this.dragColIndex[index] = j;
+              _this2.dragColIndex[index] = j;
               break;
             } else if (count > colspan) {
               break;
@@ -4942,7 +5045,7 @@ var component = normalizeComponent(
           }
 
           if (!flag) {
-            _this.dragColIndex[index] = -1; // use -1 to indicate no match
+            _this2.dragColIndex[index] = -1; // use -1 to indicate no match
           }
         }); // forbidden 'user select mode' while dragging
 

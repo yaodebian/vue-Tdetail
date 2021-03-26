@@ -108,20 +108,40 @@ export default {
           this.rows[i][j].colspan = this.rows[i][j].colspan / behindCount * remain
         }
       }
-      // if (this.dragColIndex.indexOf(-1) === -1) {
-      //   return
-      // }
-      // let dragRowIndex = -1
-      // for (let i = 0; i < this.dragColIndex.length; ) {
-      //   if (this.dragColIndex[i] !== -1) {
-      //     dragRowIndex = i
-      //     break
-      //   }
-      // }
-      // const restAlignObj = {}
-      // for (let i = dragRowIndex + 1; i < this.rows[dragRowIndex][this.dragColIndex[dragRowIndex]].length; i++) {
-      //   let temp = restAlignList(this.alignMatchList, dragRowIndex, i)
-      // }
+      if (this.dragColIndex.indexOf(-1) === -1) {
+        return
+      }
+      let dragRowIndex = -1
+      for (let i = 0; i < this.dragColIndex.length; i++) {
+        if (this.dragColIndex[i] !== -1) {
+          dragRowIndex = i
+          break
+        }
+      }
+      for (let i = this.dragColIndex[dragRowIndex] + 1; i < this.rows[dragRowIndex].length; i++) {
+        let temp = restAlignList(this.alignMatchList, dragRowIndex, i)
+        this.ajustRestColumn(dragRowIndex, i, temp)
+      }
+    },
+    // ajust rest column
+    ajustRestColumn(rowIndex, colIndex, list) {
+      let count = 0
+      for (let i = colIndex + 1; i < this.rows[rowIndex].length; i++) {
+        count += this.rows[rowIndex][i].colspan
+      }
+      list.forEach(item => {
+        let [r, c] = item
+        let itemCount = 0
+        for (let i = c + 1; i < this.rows[r].length; i++) {
+          itemCount += this.rows[r][i].colspan
+        }
+        let resItemCount = 0
+        for (let i = c + 1; i < this.rows[r].length; i++) {
+          this.rows[r][i].colspan = this.rows[r][i].colspan / itemCount * count
+          resItemCount += this.rows[r][i].colspan
+        }
+        this.rows[r][c].colspan += itemCount - resItemCount
+      })
     },
     // handle mousedown event
     handleMouseDown(ev) {
