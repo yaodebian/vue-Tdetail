@@ -122,6 +122,10 @@ export default {
         let temp = restAlignList(this.alignMatchList, dragRowIndex, i)
         this.ajustRestColumn(dragRowIndex, i, temp)
       }
+      // if (this.dragColIndex[dragRowIndex] + 1 < this.rows[dragRowIndex].length - 1) {
+      //   let temp = restAlignList(this.alignMatchList, dragRowIndex, this.dragColIndex[dragRowIndex] + 1)
+      //   this.ajustRestColumn(dragRowIndex, this.dragColIndex[dragRowIndex] + 1, temp)
+      // }
     },
     // ajust rest column
     ajustRestColumn(rowIndex, colIndex, list) {
@@ -141,6 +145,12 @@ export default {
           resItemCount += this.rows[r][i].colspan
         }
         this.rows[r][c].colspan += itemCount - resItemCount
+        if (c + 1 !== this.rows[r].length - 1) {
+          for (let i = c + 1; i < this.rows[r].length - 1; i++) {
+            let temp = restAlignList(this.alignMatchList, r, i)
+            this.ajustRestColumn(r, i, temp)
+          }
+        }
       })
     },
     // handle mousedown event
