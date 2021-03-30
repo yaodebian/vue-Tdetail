@@ -118,33 +118,33 @@ export default {
           break
         }
       }
-      for (let i = this.dragColIndex[dragRowIndex] + 1; i < this.rows[dragRowIndex].length; i++) {
-        let temp = restAlignList(this.alignMatchList, dragRowIndex, i)
-        this.ajustRestColumn(dragRowIndex, i, temp)
-      }
-      // if (this.dragColIndex[dragRowIndex] + 1 < this.rows[dragRowIndex].length - 1) {
-      //   let temp = restAlignList(this.alignMatchList, dragRowIndex, this.dragColIndex[dragRowIndex] + 1)
-      //   this.ajustRestColumn(dragRowIndex, this.dragColIndex[dragRowIndex] + 1, temp)
+      let temp = restAlignList(this.alignMatchList, dragRowIndex, this.dragColIndex[dragRowIndex])
+      this.ajustRestColumn(dragRowIndex, this.dragColIndex[dragRowIndex], temp, true)
+      // for (let i = this.dragColIndex[dragRowIndex] + 1; i < this.rows[dragRowIndex].length - 1; i++) {
+      //   let temp = restAlignList(this.alignMatchList, dragRowIndex, i)
+      //   this.ajustRestColumn(dragRowIndex, i, temp)
       // }
     },
     // ajust rest column
-    ajustRestColumn(rowIndex, colIndex, list) {
+    ajustRestColumn(rowIndex, colIndex, list, flag) {
       let count = 0
-      for (let i = colIndex + 1; i < this.rows[rowIndex].length; i++) {
-        count += this.rows[rowIndex][i].colspan
+      if (!flag) {
+        for (let i = colIndex + 1; i < this.rows[rowIndex].length; i++) {
+          count += this.rows[rowIndex][i].colspan
+        }
       }
       list.forEach(item => {
         let [r, c] = item
-        let itemCount = 0
-        for (let i = c + 1; i < this.rows[r].length; i++) {
-          itemCount += this.rows[r][i].colspan
+        if (!flag) {
+          let itemCount = 0
+          for (let i = c + 1; i < this.rows[r].length; i++) {
+            itemCount += this.rows[r][i].colspan
+          }
+          for (let i = c + 1; i < this.rows[r].length; i++) {
+            this.rows[r][i].colspan = this.rows[r][i].colspan / itemCount * count
+          }
+          this.rows[r][c].colspan += itemCount - count
         }
-        let resItemCount = 0
-        for (let i = c + 1; i < this.rows[r].length; i++) {
-          this.rows[r][i].colspan = this.rows[r][i].colspan / itemCount * count
-          resItemCount += this.rows[r][i].colspan
-        }
-        this.rows[r][c].colspan += itemCount - resItemCount
         if (c + 1 !== this.rows[r].length - 1) {
           for (let i = c + 1; i < this.rows[r].length - 1; i++) {
             let temp = restAlignList(this.alignMatchList, r, i)

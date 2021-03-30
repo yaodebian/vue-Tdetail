@@ -4279,12 +4279,12 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"2ea40ba5-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TDetail.vue?vue&type=template&id=482e8a6f&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"2ea40ba5-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TDetail.vue?vue&type=template&id=7da53749&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"detailCon",class:{ 'tdetail': true, 'tdetail-box': _vm.border, 'tdetail-resize': _vm.moving }},[_vm._l((_vm.rows),function(row){return _c('TDetailRow',{key:row.label,class:{ 'tdetail__row': _vm.border },attrs:{"col":_vm.col,"columList":row,"border":_vm.border,"wrap":_vm.wrap,"dragable":_vm.dragable},nativeOn:{"mousedown":function($event){return _vm.handleMouseDown($event)}}})}),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.moving),expression:"moving"}],ref:"markLine",staticClass:"tdetail-box__mark-line"})],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/TDetail.vue?vue&type=template&id=482e8a6f&
+// CONCATENATED MODULE: ./src/components/TDetail.vue?vue&type=template&id=7da53749&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.for-each.js
 var es_array_for_each = __webpack_require__("4160");
@@ -4949,23 +4949,22 @@ var component = normalizeComponent(
         }
       }
 
-      for (var _i2 = this.dragColIndex[dragRowIndex] + 1; _i2 < this.rows[dragRowIndex].length; _i2++) {
-        var temp = alignMatch_restAlignList(this.alignMatchList, dragRowIndex, _i2);
-        this.ajustRestColumn(dragRowIndex, _i2, temp);
-      } // if (this.dragColIndex[dragRowIndex] + 1 < this.rows[dragRowIndex].length - 1) {
-      //   let temp = restAlignList(this.alignMatchList, dragRowIndex, this.dragColIndex[dragRowIndex] + 1)
-      //   this.ajustRestColumn(dragRowIndex, this.dragColIndex[dragRowIndex] + 1, temp)
+      var temp = alignMatch_restAlignList(this.alignMatchList, dragRowIndex, this.dragColIndex[dragRowIndex]);
+      this.ajustRestColumn(dragRowIndex, this.dragColIndex[dragRowIndex], temp, true); // for (let i = this.dragColIndex[dragRowIndex] + 1; i < this.rows[dragRowIndex].length - 1; i++) {
+      //   let temp = restAlignList(this.alignMatchList, dragRowIndex, i)
+      //   this.ajustRestColumn(dragRowIndex, i, temp)
       // }
-
     },
     // ajust rest column
-    ajustRestColumn: function ajustRestColumn(rowIndex, colIndex, list) {
+    ajustRestColumn: function ajustRestColumn(rowIndex, colIndex, list, flag) {
       var _this = this;
 
       var count = 0;
 
-      for (var i = colIndex + 1; i < this.rows[rowIndex].length; i++) {
-        count += this.rows[rowIndex][i].colspan;
+      if (!flag) {
+        for (var i = colIndex + 1; i < this.rows[rowIndex].length; i++) {
+          count += this.rows[rowIndex][i].colspan;
+        }
       }
 
       list.forEach(function (item) {
@@ -4973,26 +4972,25 @@ var component = normalizeComponent(
             r = _item[0],
             c = _item[1];
 
-        var itemCount = 0;
+        if (!flag) {
+          var itemCount = 0;
 
-        for (var _i3 = c + 1; _i3 < _this.rows[r].length; _i3++) {
-          itemCount += _this.rows[r][_i3].colspan;
+          for (var _i2 = c + 1; _i2 < _this.rows[r].length; _i2++) {
+            itemCount += _this.rows[r][_i2].colspan;
+          }
+
+          for (var _i3 = c + 1; _i3 < _this.rows[r].length; _i3++) {
+            _this.rows[r][_i3].colspan = _this.rows[r][_i3].colspan / itemCount * count;
+          }
+
+          _this.rows[r][c].colspan += itemCount - count;
         }
-
-        var resItemCount = 0;
-
-        for (var _i4 = c + 1; _i4 < _this.rows[r].length; _i4++) {
-          _this.rows[r][_i4].colspan = _this.rows[r][_i4].colspan / itemCount * count;
-          resItemCount += _this.rows[r][_i4].colspan;
-        }
-
-        _this.rows[r][c].colspan += itemCount - resItemCount;
 
         if (c + 1 !== _this.rows[r].length - 1) {
-          for (var _i5 = c + 1; _i5 < _this.rows[r].length - 1; _i5++) {
-            var temp = alignMatch_restAlignList(_this.alignMatchList, r, _i5);
+          for (var _i4 = c + 1; _i4 < _this.rows[r].length - 1; _i4++) {
+            var temp = alignMatch_restAlignList(_this.alignMatchList, r, _i4);
 
-            _this.ajustRestColumn(r, _i5, temp);
+            _this.ajustRestColumn(r, _i4, temp);
           }
         }
       });
