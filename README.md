@@ -8,7 +8,8 @@ in development: complete basic functions
 
 ### features
 
-- ✅ support all option of wordcloud2.js
+- ✅ table layout
+- ✅ item contains two attribute: lable and value
 - ✅ border opt to determine whether set border
 - ✅ on-demand tooltip
 - ✅ wrap opt to control warp or nowrap of value content
