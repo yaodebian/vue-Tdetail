@@ -120,10 +120,6 @@ export default {
       }
       let temp = restAlignList(this.alignMatchList, dragRowIndex, this.dragColIndex[dragRowIndex])
       this.ajustRestColumn(dragRowIndex, this.dragColIndex[dragRowIndex], temp, true)
-      // for (let i = this.dragColIndex[dragRowIndex] + 1; i < this.rows[dragRowIndex].length - 1; i++) {
-      //   let temp = restAlignList(this.alignMatchList, dragRowIndex, i)
-      //   this.ajustRestColumn(dragRowIndex, i, temp)
-      // }
     },
     // ajust rest column
     ajustRestColumn(rowIndex, colIndex, list, flag) {
