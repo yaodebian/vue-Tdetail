@@ -1,3 +1,4 @@
+// init rows list
 export default (col, list) => {
   col = col || 3
   const resArr = []

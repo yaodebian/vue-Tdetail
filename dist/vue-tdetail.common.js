@@ -4420,6 +4420,7 @@ function _slicedToArray(arr, i) {
   return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
 // CONCATENATED MODULE: ./src/utils/rows.js
+// init rows list
 /* harmony default export */ var rows = (function (col, list) {
   col = col || 3;
   var resArr = [];
