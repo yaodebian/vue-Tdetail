@@ -6,28 +6,23 @@ export default (col, list) => {
   while (i < list.length) {
     const temp = []
     let len = 0
-    let index = i
     for (let n = i; n < i + col; n++) {
       if (n >= list.length) {
         temp[temp.length - 1].colspan += col - len
-        index = n
+        i = n + 1
         break
       }
       const tempItem = JSON.parse(JSON.stringify(list[n]))
-      tempItem.colspan = tempItem.colspan ? Math.floor(tempItem.colspan) : 1
-      if (len + tempItem.colspan > col && col - len >= 1) {
+      tempItem.colspan = tempItem.colspan ? tempItem.colspan : 1
+      if ((len + tempItem.colspan > col) || (len + tempItem.colspan <= col && n === i + col - 1)) {
         tempItem.colspan = col - len
-      } else if (len + tempItem.colspan > col && col - len < 1) {
-        index = n
-        break
       }
       temp.push(tempItem)
       len += tempItem.colspan
-    }
-    if (index === i) {
-      i = i + col
-    } else {
-      i = index
+      if (len === col) {
+        i = n + 1
+        break
+      }
     }
     resArr.push(temp)
   }

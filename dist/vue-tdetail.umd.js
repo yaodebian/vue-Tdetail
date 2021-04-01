@@ -4279,12 +4279,12 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"2ea40ba5-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TDetail.vue?vue&type=template&id=9f68aa04&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"detailCon",class:{ 'tdetail': true, 'tdetail-box': _vm.border, 'tdetail-resize': _vm.moving }},[_vm._l((_vm.rows),function(row){return _c('TDetailRow',{key:row.label,class:{ 'tdetail__row': _vm.border },attrs:{"col":_vm.col,"columList":row,"border":_vm.border,"wrap":_vm.wrap,"dragable":_vm.dragable},nativeOn:{"mousedown":function($event){return _vm.handleMouseDown($event)}}})}),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.moving),expression:"moving"}],ref:"markLine",staticClass:"tdetail-box__mark-line"})],2)}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"2ea40ba5-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TDetail.vue?vue&type=template&id=d8d70670&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"detailCon",class:{ 'tdetail': true, 'tdetail-box': _vm.border, 'tdetail-resize': _vm.moving }},[_vm._l((_vm.rows),function(row){return _c('TDetailRow',{key:row.label,class:{ 'tdetail__row': _vm.border },attrs:{"columList":row},nativeOn:{"mousedown":function($event){return _vm.handleMouseDown($event)}}})}),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.moving),expression:"moving"}],ref:"markLine",staticClass:"tdetail-box__mark-line"})],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/TDetail.vue?vue&type=template&id=9f68aa04&
+// CONCATENATED MODULE: ./src/components/TDetail.vue?vue&type=template&id=d8d70670&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.for-each.js
 var es_array_for_each = __webpack_require__("4160");
@@ -4438,33 +4438,28 @@ function _slicedToArray(arr, i) {
   while (i < list.length) {
     var temp = [];
     var len = 0;
-    var index = i;
 
     for (var n = i; n < i + col; n++) {
       if (n >= list.length) {
         temp[temp.length - 1].colspan += col - len;
-        index = n;
+        i = n + 1;
         break;
       }
 
       var tempItem = JSON.parse(JSON.stringify(list[n]));
-      tempItem.colspan = tempItem.colspan ? Math.floor(tempItem.colspan) : 1;
+      tempItem.colspan = tempItem.colspan ? tempItem.colspan : 1;
 
-      if (len + tempItem.colspan > col && col - len >= 1) {
+      if (len + tempItem.colspan > col || len + tempItem.colspan <= col && n === i + col - 1) {
         tempItem.colspan = col - len;
-      } else if (len + tempItem.colspan > col && col - len < 1) {
-        index = n;
-        break;
       }
 
       temp.push(tempItem);
       len += tempItem.colspan;
-    }
 
-    if (index === i) {
-      i = i + col;
-    } else {
-      i = index;
+      if (len === col) {
+        i = n + 1;
+        break;
+      }
     }
 
     resArr.push(temp);
@@ -4815,10 +4810,6 @@ var component = normalizeComponent(
 //
 //
 //
-//
-//
-//
-//
 // import script
 
  // eslint-disable-line
@@ -4830,11 +4821,13 @@ var component = normalizeComponent(
   components: {
     TDetailRow: TDetailRow
   },
-  provide: {
-    col: 'col',
-    border: 'border',
-    wrap: 'wrap',
-    dragable: 'dragable'
+  provide: function provide() {
+    return {
+      col: this.col,
+      border: this.border,
+      wrap: this.wrap,
+      dragable: this.dragable
+    };
   },
   props: {
     col: {
@@ -4887,12 +4880,17 @@ var component = normalizeComponent(
       deep: true,
       handler: function handler(val) {
         this.rows = rows(this.col, val);
-        this.initAlignMatchList();
+
+        if (this.dragable) {
+          this.initAlignMatchList();
+        }
       }
     }
   },
   mounted: function mounted() {
-    this.initDrag();
+    if (this.dragable) {
+      this.initDrag();
+    }
   },
   methods: {
     // compute col width
@@ -4983,6 +4981,10 @@ var component = normalizeComponent(
     // handle mousedown event
     handleMouseDown: function handleMouseDown(ev) {
       var _this2 = this;
+
+      if (!this.dragable) {
+        return;
+      }
 
       var conX = this.$refs['detailCon'].getBoundingClientRect().left;
       var clientX = ev.clientX;

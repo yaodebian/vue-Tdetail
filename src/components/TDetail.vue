@@ -4,11 +4,7 @@
       :class="{ 'tdetail__row': border }"
       v-for="row in rows" 
       :key="row.label" 
-      :col="col" 
       :columList="row" 
-      :border="border"
-      :wrap="wrap"
-      :dragable="dragable"
       @mousedown.native="handleMouseDown($event)"
     >
     </TDetailRow>
@@ -29,11 +25,13 @@ export default {
   components: {
     TDetailRow
   },
-  provide: {
-    col: 'col',
-    border: 'border',
-    wrap: 'wrap',
-    dragable: 'dragable'
+  provide() {
+    return {
+      col: this.col,
+      border: this.border,
+      wrap: this.wrap,
+      dragable: this.dragable
+    }
   },
   props: {
     col: {
@@ -83,12 +81,16 @@ export default {
       deep: true,
       handler(val) {
         this.rows = getRows(this.col, val)
-        this.initAlignMatchList()
+        if (this.dragable) {
+          this.initAlignMatchList()
+        }
       }
     }
   },
   mounted() {
-    this.initDrag()
+    if (this.dragable) {
+      this.initDrag()
+    }
   },
   methods: {
     // compute col width
@@ -157,6 +159,9 @@ export default {
     },
     // handle mousedown event
     handleMouseDown(ev) {
+      if (!this.dragable) {
+        return
+      }
       const conX = this.$refs['detailCon'].getBoundingClientRect().left
       const clientX = ev.clientX
       this.markLineL = clientX - conX > 0 ? clientX - conX + 1 : 0
