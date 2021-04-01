@@ -4270,12 +4270,12 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"2ea40ba5-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TDetail.vue?vue&type=template&id=6fef3d83&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"2ea40ba5-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TDetail.vue?vue&type=template&id=9f68aa04&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"detailCon",class:{ 'tdetail': true, 'tdetail-box': _vm.border, 'tdetail-resize': _vm.moving }},[_vm._l((_vm.rows),function(row){return _c('TDetailRow',{key:row.label,class:{ 'tdetail__row': _vm.border },attrs:{"col":_vm.col,"columList":row,"border":_vm.border,"wrap":_vm.wrap,"dragable":_vm.dragable},nativeOn:{"mousedown":function($event){return _vm.handleMouseDown($event)}}})}),_c('div',{directives:[{name:"show",rawName:"v-show",value:(_vm.moving),expression:"moving"}],ref:"markLine",staticClass:"tdetail-box__mark-line"})],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/TDetail.vue?vue&type=template&id=6fef3d83&
+// CONCATENATED MODULE: ./src/components/TDetail.vue?vue&type=template&id=9f68aa04&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.for-each.js
 var es_array_for_each = __webpack_require__("4160");
@@ -4619,15 +4619,14 @@ var alignMatch_restAlignList = function restAlignList(matchList, rowIndex, colIn
 
   return resArr;
 };
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"2ea40ba5-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TDetailRow.vue?vue&type=template&id=cbdba4a8&
-var TDetailRowvue_type_template_id_cbdba4a8_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"tdetail-row"},_vm._l((_vm.columList),function(col){return _c('div',{key:col.label,class:{ 'tdetail-row__col': true, 'tdetail-row__colbox': _vm.border, 'tdetail-row__colborder': _vm.dragable && _vm.border },style:(("flex-grow: " + (col.colspan)))},[_c('label',{directives:[{name:"tooltip",rawName:"v-tooltip",value:(col.label),expression:"col.label"}],staticClass:"tdetail-row__col-label",domProps:{"textContent":_vm._s(col.label)}}),_c('p',{directives:[{name:"tooltip",rawName:"v-tooltip",value:(col.value),expression:"col.value"}],class:{ 'tdetail-row__col-value': true, 'tdetail-row__col-valwrap': _vm.wrap },domProps:{"textContent":_vm._s(col.value)}})])}),0)}
-var TDetailRowvue_type_template_id_cbdba4a8_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"2ea40ba5-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TDetailRow.vue?vue&type=template&id=0b5c2d70&
+var TDetailRowvue_type_template_id_0b5c2d70_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"tdetail-row"},_vm._l((_vm.columList),function(col){return _c('div',{key:col.label,class:{ 'tdetail-row__col': true, 'tdetail-row__colbox': _vm.border, 'tdetail-row__colborder': _vm.dragable && _vm.border },style:(("flex-grow: " + (col.colspan)))},[_c('label',{directives:[{name:"tooltip",rawName:"v-tooltip",value:(col.label),expression:"col.label"}],staticClass:"tdetail-row__col-label",domProps:{"textContent":_vm._s(col.label)}}),_c('p',{directives:[{name:"tooltip",rawName:"v-tooltip",value:(col.value),expression:"col.value"}],class:{ 'tdetail-row__col-value': true, 'tdetail-row__col-valwrap': _vm.wrap },domProps:{"textContent":_vm._s(col.value)}})])}),0)}
+var TDetailRowvue_type_template_id_0b5c2d70_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/TDetailRow.vue?vue&type=template&id=cbdba4a8&
+// CONCATENATED MODULE: ./src/components/TDetailRow.vue?vue&type=template&id=0b5c2d70&
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/TDetailRow.vue?vue&type=script&lang=js&
-
 //
 //
 //
@@ -4644,32 +4643,14 @@ var TDetailRowvue_type_template_id_cbdba4a8_staticRenderFns = []
 //
 /* harmony default export */ var TDetailRowvue_type_script_lang_js_ = ({
   name: 'TDetailRow',
+  inject: ['col', 'border', 'wrap', 'dragable'],
   props: {
-    col: {
-      type: Number,
-      default: 3
-    },
     columList: {
       type: Array,
       default: function _default() {
         return [];
       }
-    },
-    border: {
-      type: Boolean,
-      default: true
-    },
-    wrap: {
-      type: Boolean,
-      default: false
-    },
-    dragable: {
-      type: Boolean,
-      default: false
     }
-  },
-  data: function data() {
-    return {};
   }
 });
 // CONCATENATED MODULE: ./src/components/TDetailRow.vue?vue&type=script&lang=js&
@@ -4788,8 +4769,8 @@ function normalizeComponent (
 
 var component = normalizeComponent(
   components_TDetailRowvue_type_script_lang_js_,
-  TDetailRowvue_type_template_id_cbdba4a8_render,
-  TDetailRowvue_type_template_id_cbdba4a8_staticRenderFns,
+  TDetailRowvue_type_template_id_0b5c2d70_render,
+  TDetailRowvue_type_template_id_0b5c2d70_staticRenderFns,
   false,
   null,
   null,
@@ -4839,6 +4820,12 @@ var component = normalizeComponent(
   name: 'tdetail',
   components: {
     TDetailRow: TDetailRow
+  },
+  provide: {
+    col: 'col',
+    border: 'border',
+    wrap: 'wrap',
+    dragable: 'dragable'
   },
   props: {
     col: {

@@ -29,6 +29,12 @@ export default {
   components: {
     TDetailRow
   },
+  provide: {
+    col: 'col',
+    border: 'border',
+    wrap: 'wrap',
+    dragable: 'dragable'
+  },
   props: {
     col: {
       type: Number,

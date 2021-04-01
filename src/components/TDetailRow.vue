@@ -15,32 +15,12 @@
 <script>
 export default {
   name: 'TDetailRow',
+  inject: ['col', 'border', 'wrap', 'dragable'],
   props: {
-    col: {
-      type: Number,
-      default: 3
-    },
     columList: {
       type: Array,
       default: () => []
     },
-    border: {
-      type: Boolean,
-      default: true
-    },
-    wrap: {
-      type: Boolean,
-      default: false
-    },
-    dragable: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data() {
-    return {
-
-    }
   },
 }
 </script>
