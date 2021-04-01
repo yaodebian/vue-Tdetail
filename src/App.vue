@@ -4,8 +4,8 @@
     <h1>Vue Table Detail</h1>
     <DefaultDemo class="demo-item"></DefaultDemo>
     <WrapDemo class="demo-item"></WrapDemo>
-    <BundleDemo class="demo-item"></BundleDemo>
     <DragDemo class="demo-item"></DragDemo>
+    <BundleDemo class="demo-item"></BundleDemo>
   </div>
 </template>
 

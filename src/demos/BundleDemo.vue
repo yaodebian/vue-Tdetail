@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Demo3: Bundle</h2>
+    <h2>Demo4: Bundle</h2>
     <TDetail 
       :list="list" 
       :col="4"

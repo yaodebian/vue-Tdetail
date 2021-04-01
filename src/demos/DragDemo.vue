@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>Demo4: Drag</h2>
+    <h2>Demo3: Drag</h2>
     <TDetail 
       :list="list" 
       :col="4"
