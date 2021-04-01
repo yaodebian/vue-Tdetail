@@ -37,7 +37,7 @@ if (!('classList' in document.documentElement)) {
         }),
 
         toggle: function (value) {
-          if(typeof value !== 'string' || arguments.length === 0) throw TypeError('Failed to execute \'toggle\' on \'DOMTokenList\': 1 argument(string) required, but only 0 present.')
+          if(typeof value !== 'string' || arguments.length === 0) throw TypeError('Failed to execute "toggle" on "DOMTokenList": 1 argument(string) required, but only 0 present.')
           if (arguments.length === 1) {
             this.contains(value) ? this.remove(value) : this.add(value)
             return
@@ -46,14 +46,14 @@ if (!('classList' in document.documentElement)) {
         },
 
         contains: update(function (className, valArr) {
-          if (valArr.length === 0) throw TypeError('Failed to execute \'contains\' on \'DOMTokenList\': 1 argument required, but only 0 present.')
+          if (valArr.length === 0) throw TypeError('Failed to execute "contains" on "DOMTokenList": 1 argument required, but only 0 present.')
           if (typeof valArr[0] !== 'string' || !!~valArr[0].search(/\s+/g)) return false
           return !!~className.search(new RegExp(valArr[0]))
         }),
 
         item: function (index) {
           typeof index === 'string' ? index = parseInt(index) : ''
-          if (arguments.length === 0 || typeof index !== 'number') throw TypeError('Failed to execute \'toggle\' on \'DOMTokenList\': 1 argument required, but only 0 present.')
+          if (arguments.length === 0 || typeof index !== 'number') throw TypeError('Failed to execute "toggle" on "DOMTokenList": 1 argument required, but only 0 present.')
           var claArr = self.className.replace(/^\s+|\s+$/, '').split(/\s+/)
           var len = claArr.length
           if (index < 0 || index >= len) return null
