@@ -14,4 +14,4 @@ in development: complete basic functions
 - ✅ on-demand tooltip
 - ✅ wrap opt to control warp or nowrap of value content
 - optimization
-  - dragable border to control width of a column dynamiclly
+  - ✅ dragable border to control width of a column dynamiclly
