@@ -10,12 +10,9 @@ export default {
   inserted: (el, binding) => {
     handler(el, binding)
   },
-  update: (el, binding) => {
+  componentUpdated: (el, binding) => {
     if (binding.value !== binding.oldValue) {
       handler(el, binding)
     }
-  },
-  componentUpdated: (el, binding) => {
-    handler(el, binding)
   }
 }
